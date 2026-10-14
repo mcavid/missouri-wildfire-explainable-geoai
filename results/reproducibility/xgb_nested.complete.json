@@ -1,0 +1,15 @@
+{
+  "fingerprint": "6d1edd0b3b2a7f773582848d5ed282c5de99a45758b17a713677f919556b5018",
+  "historical_fold_metrics_inner_scores_parameters_match": true,
+  "mean_auc": 0.6470192772635993,
+  "output_sha256": {
+    "xgb_nested_fold_results.csv": "f15e3334fff0e1472a333ad2579a547eaa728a15c9c3ab503a7ec4c0c1f4441e",
+    "xgb_nested_historical_comparison.csv": "f53ba569bcbf673ab508ac8d43e222546c996b7259422afb858f588de65c3d4d",
+    "xgb_nested_oof_predictions.csv": "5f71a8a9b8011bb1bb68167e03d25fc95e11a7f7b04f77a6bba1d05dd4772eba"
+  },
+  "pooled_auc_rounds_to_requested_0645": true,
+  "pooled_oof_auc": 0.6453372240830018,
+  "provenance": "Full nested reconstruction on explicitly shared outer/inner folds; matches historical fold metrics, inner scores, and winners. Historical generating code was absent.",
+  "sd_auc": 0.03199403485451513,
+  "verified": true
+}

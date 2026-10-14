@@ -1,0 +1,25 @@
+# Local state and authentication
+.DS_Store
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+.env
+.env.*
+*.pem
+*.key
+# Generated/recomputed outputs; frozen paper artifacts remain tracked
+/figures/generated/
+/figures/publication/
+/results/checks/
+/results/new_runs/
+# Source archives and editorial materials are outside the publication payload
+/archive/
+/manuscript/
+/submission/
+/exports/
+*.docx
+~$*
+*.tif
+*.tiff
+*.ovr

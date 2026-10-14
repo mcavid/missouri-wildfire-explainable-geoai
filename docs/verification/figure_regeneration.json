@@ -1,0 +1,1068 @@
+{
+  "figures": {
+    "Figure_01": {
+      "detail": {
+        "inputs": [
+          {
+            "path": "data/Missouri_Wildfire_Susceptibility_5km.gpkg",
+            "sha256": "5aeeb4301e10b5fb7fb1fec25f4f6414e88e63909ed9f9ddc17a2892bca3adde"
+          },
+          {
+            "path": "data/derived/missouri_boundary.geojson",
+            "sha256": "1b318f28002838c5ee88f91285283766f4dfa776ee7f2b6ee576c4b7da5da8df"
+          },
+          {
+            "path": "data/derived/recorded_wildfire_locations_2021_2025.csv",
+            "sha256": "98c19d54a2a56486d66afb78d77d094cb1c2d54d82b1f492eefd8fef3f449ed9"
+          },
+          {
+            "path": "results/reproducibility/outer_fold_assignments.csv",
+            "sha256": "93cefd866bfbd22f2e5fb9184d58e49edb12dbdfd5fbc2ba8ca96a40147b227b"
+          }
+        ],
+        "rows": 7229,
+        "wildfire_locations": 11434,
+        "spatial_groups": 94,
+        "source_values_changed": false,
+        "models_fitted": 0,
+        "map_crs": "EPSG:5070",
+        "matching_panel_extents": true,
+        "fold_colors": {
+          "1": "#4477AA",
+          "2": "#EE6677",
+          "3": "#228833",
+          "4": "#CCBB44",
+          "5": "#AA3377"
+        },
+        "revision_of": "figures/publication/figure1_study_area_spatial_folds",
+        "caption": "Coordinate-axis revision of the existing study-area figure. The same 11,434 recorded wildfire locations, 7,229 modeled cells, 94 spatial groups, and original outer-fold assignments are retained. Group boundaries are unions of original modeled cells. Coordinate axes are explicitly labeled in EPSG:5070 kilometres; distances and north direction are drawn by the common map formatter."
+      },
+      "png_pixels": [
+        4440,
+        2820
+      ],
+      "dpi": 600,
+      "outputs": [
+        {
+          "path": "figures/generated/Figure_01.png",
+          "sha256": "68f17953d62cd3cdd0e5b70dd77b3387a9a4667e104043516d5710fcb9cacf9d"
+        },
+        {
+          "path": "figures/generated/Figure_01.pdf",
+          "sha256": "9844f34454fcbb71d0ae93d0c5db788234ad84feff2026ba8ef99c63efffaec8"
+        }
+      ],
+      "models_fitted": false,
+      "shap_recomputed": false
+    },
+    "Figure_02": {
+      "detail": {
+        "inputs": [],
+        "source_cells_1_based": [
+          89,
+          94,
+          97,
+          100,
+          102,
+          103,
+          104,
+          110,
+          114,
+          119,
+          122,
+          134,
+          135
+        ],
+        "checks": {
+          "all_elements_are_vector": true,
+          "response_labels": [
+            "Recorded wildfire",
+            "No recorded wildfire"
+          ]
+        },
+        "notes": "Workflow redraw documents the original RF final-fit provenance; nested tuning and model-family comparison are separate. Nested XGBoost is reconstructed in scripts/reproduce_validation.py. No claim of calibrated wildfire probability."
+      },
+      "png_pixels": [
+        4320,
+        4020
+      ],
+      "dpi": 600,
+      "outputs": [
+        {
+          "path": "figures/generated/Figure_02.png",
+          "sha256": "151fab50f5098cf82813532fbba33f8d4587afdab1927ad904f179c4fe2adeec"
+        },
+        {
+          "path": "figures/generated/Figure_02.pdf",
+          "sha256": "ab266e6cb145ecb3474e837dbca33fc1f83cf992df5ace12777c5d7aa9874285"
+        }
+      ],
+      "models_fitted": false,
+      "shap_recomputed": false
+    },
+    "Figure_03": {
+      "detail": {
+        "inputs": [
+          {
+            "path": "results/reproducibility/model_evaluation_summary.csv",
+            "sha256": "9c3b5aed449a75a3bf152f3bf6ad4396c42d2ef29aa802f702c99f49843c8908"
+          }
+        ],
+        "source_cells_1_based": [
+          102,
+          103,
+          106,
+          110,
+          135
+        ],
+        "checks": {
+          "all_six_rows_verified": true,
+          "sd_ddof": 1,
+          "plotted_values": [
+            {
+              "model": "Random Forest",
+              "validation": "Random 5-fold CV",
+              "mean_auc": 0.7675131561751218,
+              "sd_auc": 0.01765877279186227,
+              "pooled_oof_auc": 0.7668867721140004,
+              "provenance": "Reproduced original baseline from preserved 33-feature checkpoint; exact values belong to this reproduction.",
+              "verified": true
+            },
+            {
+              "model": "Random Forest",
+              "validation": "Grouped spatial 5-fold CV",
+              "mean_auc": 0.6728386879176435,
+              "sd_auc": 0.022359869362341724,
+              "pooled_oof_auc": 0.6697757389693965,
+              "provenance": "Reproduced original baseline from preserved 33-feature checkpoint; exact values belong to this reproduction.",
+              "verified": true
+            },
+            {
+              "model": "Random Forest",
+              "validation": "Tuned spatial 5-fold CV",
+              "mean_auc": 0.6630206939775217,
+              "sd_auc": 0.030008235415890195,
+              "pooled_oof_auc": 0.6605096799995707,
+              "provenance": "Historical full-precision fold metrics and saved per-cell OOF probabilities; original notebook implementation preserved.",
+              "verified": true
+            },
+            {
+              "model": "XGBoost",
+              "validation": "Tuned spatial 5-fold CV",
+              "mean_auc": 0.6492433329652872,
+              "sd_auc": 0.025379596461150074,
+              "pooled_oof_auc": 0.647090878644658,
+              "provenance": "Historical full-precision fold metrics and saved per-cell OOF probabilities; original notebook implementation preserved.",
+              "verified": true
+            },
+            {
+              "model": "Random Forest",
+              "validation": "Nested spatial 5-fold CV",
+              "mean_auc": 0.6622128514006573,
+              "sd_auc": 0.030871113269956785,
+              "pooled_oof_auc": 0.6590677730966309,
+              "provenance": "Historical full-precision fold metrics and saved per-cell OOF probabilities; original notebook implementation preserved.",
+              "verified": true
+            },
+            {
+              "model": "XGBoost",
+              "validation": "Nested spatial 5-fold CV",
+              "mean_auc": 0.6470192772635993,
+              "sd_auc": 0.03199403485451513,
+              "pooled_oof_auc": 0.6453372240830018,
+              "provenance": "Full nested reconstruction on explicitly shared outer/inner folds; matches historical fold metrics, inner scores, and winners. Historical generating code was absent.",
+              "verified": true
+            }
+          ]
+        },
+        "notes": "Points and horizontal whiskers show fold mean ROC-AUC \u00b1 sample SD. Values are read at full precision from the verified summary, with display rounded to three decimals."
+      },
+      "png_pixels": [
+        4320,
+        2340
+      ],
+      "dpi": 600,
+      "outputs": [
+        {
+          "path": "figures/generated/Figure_03.png",
+          "sha256": "7ed2554b2fc0a3fe9aa92d0f91459e98b0f441d4c0d3c6d7d6bcebeb5d4e6716"
+        },
+        {
+          "path": "figures/generated/Figure_03.pdf",
+          "sha256": "1f46f7243e52789997791dd59a220355f891a93ee4926a29d8fe1e4cd861c12b"
+        }
+      ],
+      "models_fitted": false,
+      "shap_recomputed": false
+    },
+    "Figure_04": {
+      "detail": {
+        "inputs": [
+          {
+            "path": "results/reproducibility/rf_shap_values.npz",
+            "sha256": "7f576790355a2439efcec314b2619b15cc0581e8fd4c44083968cbb114ed5af7"
+          },
+          {
+            "path": "results/reproducibility/rf_shap_metadata.json",
+            "sha256": "0eca147ca263a30a26f3e27a71f4be5b146ae76bb551eb3b7175c9b4602812ae"
+          }
+        ],
+        "source_cells_1_based": [
+          114,
+          115,
+          116,
+          117,
+          144,
+          145,
+          146
+        ],
+        "checks": {
+          "cells": 7229,
+          "features": 33,
+          "interpreted_class": 1,
+          "top_15": [
+            "population",
+            "ndvi",
+            "canopy",
+            "precipitation",
+            "road_distance",
+            "elevation",
+            "temperature",
+            "lc_41",
+            "slope",
+            "wind",
+            "pdsi",
+            "lc_82",
+            "eastness",
+            "northness",
+            "fuel_93"
+          ],
+          "maximum_importance_difference": 9.389190813724468e-17,
+          "maximum_additivity_error": 3.9565573040079016e-14
+        },
+        "notes": "All 7,229 class-1 SHAP values plotted for each displayed feature. Horizontal coordinates are unchanged; deterministic vertical jitter is display-only. No units are asserted for raw canopy or NDVI. Feature colors use per-feature 5th/95th percentile limits, clipped for color only. LC and fuel indicators are labeled explicitly."
+      },
+      "png_pixels": [
+        4440,
+        3960
+      ],
+      "dpi": 600,
+      "outputs": [
+        {
+          "path": "figures/generated/Figure_04.png",
+          "sha256": "a60b9a5fde54dd2fb7158c3693f9449516830d1aa40916fe532fce9f23cadfc5"
+        },
+        {
+          "path": "figures/generated/Figure_04.pdf",
+          "sha256": "54c15ee4a119cd1f2dc2e7770feb036eb172c80d92f2c700049b0b65b1948cf9"
+        }
+      ],
+      "models_fitted": false,
+      "shap_recomputed": false
+    },
+    "Figure_06": {
+      "detail": {
+        "inputs": [
+          {
+            "path": "results/table4_nested_oof_susceptibility_validation.csv",
+            "sha256": "2e7a6b9ae4795f615ff4f722bde87a0e85b79acca12d1dd57c0fb1b81629397d"
+          }
+        ],
+        "source_cells_1_based": [
+          142,
+          148
+        ],
+        "checks": {
+          "cells": 7229,
+          "class_order": [
+            "Very Low",
+            "Low",
+            "Moderate",
+            "High",
+            "Very High"
+          ],
+          "percentages": [
+            19.71,
+            34.3,
+            42.42,
+            54.01,
+            56.22
+          ],
+          "class_colors_match_figure5": true
+        },
+        "notes": "Plots preserved table percentages; no classification or validation analysis is rerun. Colors encode the same ordered class names as Figure 5, while values are from held-out nested OOF scores."
+      },
+      "png_pixels": [
+        4200,
+        2400
+      ],
+      "dpi": 600,
+      "outputs": [
+        {
+          "path": "figures/generated/Figure_06.png",
+          "sha256": "205d4dfc9201a84b8b107dfacdf27066589b85de429ade56b7c301d3888a0b0a"
+        },
+        {
+          "path": "figures/generated/Figure_06.pdf",
+          "sha256": "a94fadc340b6b0dcbe23d964b0126580e4d7aa11d67da5bdcb50352aa6ab6ed6"
+        }
+      ],
+      "models_fitted": false,
+      "shap_recomputed": false
+    },
+    "Figure_05": {
+      "detail": {
+        "inputs": [
+          {
+            "path": "data/Missouri_Wildfire_Susceptibility_5km.gpkg",
+            "sha256": "5aeeb4301e10b5fb7fb1fec25f4f6414e88e63909ed9f9ddc17a2892bca3adde"
+          },
+          {
+            "path": "data/derived/missouri_boundary.geojson",
+            "sha256": "1b318f28002838c5ee88f91285283766f4dfa776ee7f2b6ee576c4b7da5da8df"
+          }
+        ],
+        "rows": 7229,
+        "class_order": [
+          "Very Low",
+          "Low",
+          "Moderate",
+          "High",
+          "Very High"
+        ],
+        "class_counts": {
+          "Very Low": 1446,
+          "Low": 1446,
+          "Moderate": 1445,
+          "High": 1446,
+          "Very High": 1446
+        },
+        "source_values_changed": false,
+        "models_fitted": 0,
+        "map_crs": "EPSG:5070",
+        "scores_or_classes_recomputed": false,
+        "revision_of": "figures/publication/figure5_relative_susceptibility",
+        "caption": "Coordinate-axis revision of the existing final-RF susceptibility map. The saved model scores, cell geometry, and five equal-frequency class assignments are unchanged. These classes represent relative statewide susceptibility rankings rather than calibrated wildfire probabilities."
+      },
+      "png_pixels": [
+        4440,
+        3900
+      ],
+      "dpi": 600,
+      "outputs": [
+        {
+          "path": "figures/generated/Figure_05.png",
+          "sha256": "c2fce6d89805c4e3e0f790b98ebad07065dc6c0d5c240e4acace4d83000b2ddc"
+        },
+        {
+          "path": "figures/generated/Figure_05.pdf",
+          "sha256": "35f582a0d3eb2ff2fb2d7386b89bac10e9d38e952c309b2e16e715abbd52147e"
+        }
+      ],
+      "models_fitted": false,
+      "shap_recomputed": false
+    },
+    "Figure_07": {
+      "detail": {
+        "inputs": [
+          {
+            "path": "data/missouri_wildfire_model_encoded.csv",
+            "sha256": "d4453cb28cdab1bfef2818d1adee860bef594b7a49e5fece7ffa64a2d3355a56"
+          },
+          {
+            "path": "results/reproducibility/xgb_nested_oof_predictions.csv",
+            "sha256": "5f71a8a9b8011bb1bb68167e03d25fc95e11a7f7b04f77a6bba1d05dd4772eba"
+          },
+          {
+            "path": "results/reproducibility/outer_fold_assignments.csv",
+            "sha256": "93cefd866bfbd22f2e5fb9184d58e49edb12dbdfd5fbc2ba8ca96a40147b227b"
+          },
+          {
+            "path": "results/reproducibility/model_evaluation_summary.csv",
+            "sha256": "9c3b5aed449a75a3bf152f3bf6ad4396c42d2ef29aa802f702c99f49843c8908"
+          },
+          {
+            "path": "results/reproducibility/validation_report.json",
+            "sha256": "bf7b57778ce1590c18e22ad16fec6de4fdffcb91dc97333cb50b3d33d3b23508"
+          },
+          {
+            "path": "results/rf_nested_spatial_cv_results.csv",
+            "sha256": "5a69ea4bb47e419da9391c86841f84200270288b04f29a9f36fc4389ce84d1b3"
+          },
+          {
+            "path": "results/reproducibility/xgb_nested_fold_results.csv",
+            "sha256": "f15e3334fff0e1472a333ad2579a547eaa728a15c9c3ab503a7ec4c0c1f4441e"
+          },
+          {
+            "path": "data/Missouri_Wildfire_Susceptibility_5km.gpkg",
+            "sha256": "5aeeb4301e10b5fb7fb1fec25f4f6414e88e63909ed9f9ddc17a2892bca3adde"
+          },
+          {
+            "path": "data/derived/missouri_boundary.geojson",
+            "sha256": "1b318f28002838c5ee88f91285283766f4dfa776ee7f2b6ee576c4b7da5da8df"
+          }
+        ],
+        "derived_tables": [
+          {
+            "path": "figures/generated/data/diagnostics_block_errors.csv",
+            "sha256": "ec623e22f3679b241a6af7f32e3f5de7cd5bdba11502eaefcac45483e33bcc79"
+          },
+          {
+            "path": "figures/generated/data/diagnostics_nested_model_metrics.csv",
+            "sha256": "024de4f55db0d07950e84580716a5da4c248d2e775c8f19b4f384c488f264fce"
+          }
+        ],
+        "model": "Random Forest",
+        "prediction_source": "Preserved rf_nested_oof_pred; geometry joined by grid_id; GeoPackage rf_susc/rf_oof are not used.",
+        "threshold": 0.5,
+        "threshold_optimized_here": false,
+        "model_fitting_performed": false,
+        "support_threshold": 10,
+        "support_rule": "Rates are colored only for denominators >=10; 1\u20139 are sparse gray stipple; 0 is undefined white hatch.",
+        "denominators": {
+          "false_negative_rate": "Recorded-fire-positive cells in block",
+          "false_positive_rate": "Cells with no recorded wildfire in block"
+        },
+        "denominator_labels": "Printed where block polygon area is at least 250 square kilometers and representative-point edge clearance is at least 9 km; all counts retained in diagnostics_block_errors.csv.",
+        "denominator_labels_rendered": {
+          "rf_false_negative_rate": 72,
+          "rf_false_positive_rate": 72
+        },
+        "support_counts": {
+          "false_negative_rate_support": {
+            "supported_at_least_10": 73,
+            "sparse_1_to_9": 16,
+            "no_relevant_observations": 5
+          },
+          "false_positive_rate_support": {
+            "supported_at_least_10": 83,
+            "sparse_1_to_9": 11
+          }
+        },
+        "global_error_counts_and_metrics": {
+          "outer_fold": 0.0,
+          "cells": 7229.0,
+          "recorded_fire_cells": 2988.0,
+          "no_recorded_fire_cells": 4241.0,
+          "roc_auc": 0.6590677730966309,
+          "average_precision": 0.5315963155405554,
+          "saved_threshold": 0.5,
+          "true_negative": 2654.0,
+          "false_positive": 1587.0,
+          "false_negative": 1142.0,
+          "true_positive": 1846.0,
+          "precision_at_0_50": 0.5377221089426157,
+          "recall_at_0_50": 0.6178045515394913,
+          "false_negative_rate_at_0_50": 0.3821954484605087,
+          "false_positive_rate_at_0_50": 0.37420419712332,
+          "accuracy_at_0_50": 0.6224927375847282,
+          "f1_at_0_50": 0.57498831957639
+        },
+        "projection": "EPSG:5070",
+        "geometry": "Unions of clipped original modeling cells within saved 50-km block IDs.",
+        "interpretation": "Descriptive spatial error heterogeneity for one nested OOF prediction per cell; not predictive uncertainty, calibrated risk, or independent external validation."
+      },
+      "png_pixels": [
+        4320,
+        2850
+      ],
+      "dpi": 600,
+      "outputs": [
+        {
+          "path": "figures/generated/Figure_07.png",
+          "sha256": "3389eb7d5f5e393e8c78a554810723b58594c0f6e3b7cef0d69da082b8e513b3"
+        },
+        {
+          "path": "figures/generated/Figure_07.pdf",
+          "sha256": "fbd8c0f285d20cebd520e423f307e79c98008789b7b03b7daad4fc4f347e95f8"
+        }
+      ],
+      "models_fitted": false,
+      "shap_recomputed": false
+    },
+    "Figure_08": {
+      "detail": {
+        "inputs": [
+          {
+            "path": "data/Missouri_Wildfire_Susceptibility_5km.gpkg",
+            "sha256": "5aeeb4301e10b5fb7fb1fec25f4f6414e88e63909ed9f9ddc17a2892bca3adde"
+          },
+          {
+            "path": "data/derived/missouri_boundary.geojson",
+            "sha256": "1b318f28002838c5ee88f91285283766f4dfa776ee7f2b6ee576c4b7da5da8df"
+          },
+          {
+            "path": "results/reproducibility/rf_shap_values.npz",
+            "sha256": "7f576790355a2439efcec314b2619b15cc0581e8fd4c44083968cbb114ed5af7"
+          },
+          {
+            "path": "results/reproducibility/rf_shap_metadata.json",
+            "sha256": "0eca147ca263a30a26f3e27a71f4be5b146ae76bb551eb3b7175c9b4602812ae"
+          }
+        ],
+        "supporting_data": [
+          {
+            "path": "figures/generated/data/spatial_shap_contributions.csv",
+            "sha256": "9b2b9b50698c634e6f7d22a7700863a8384d6d59dafadfc37379b6fb02d95e12"
+          }
+        ],
+        "rows": 7229,
+        "features": [
+          "population",
+          "ndvi",
+          "canopy"
+        ],
+        "interpreted_class": 1,
+        "source_values_changed": false,
+        "models_fitted": 0,
+        "explanation_scope": "Preserved final RF fitted to all cells; not held-out explanations.",
+        "common_color_limits": [
+          -0.13,
+          0.13
+        ],
+        "maximum_absolute_value": 0.1269580382523709,
+        "values_clipped_for_color": false,
+        "map_crs": "EPSG:5070",
+        "shap_additivity_error_from_verification": 3.9565573040079016e-14,
+        "caption": "Spatial distribution of signed class-1 SHAP contributions from population, NDVI, and canopy in the final full-data Random Forest. Positive and negative values shift the susceptibility score above or below its expected value. A common symmetric color scale is used. Contributions are fitted-model associations, not causal effects or held-out uncertainty estimates."
+      },
+      "png_pixels": [
+        4440,
+        4500
+      ],
+      "dpi": 600,
+      "outputs": [
+        {
+          "path": "figures/generated/Figure_08.png",
+          "sha256": "d11bbc820ca55fbc9a9422e64f9a24b8591c51162b4eca9a6184f697ed07d4e1"
+        },
+        {
+          "path": "figures/generated/Figure_08.pdf",
+          "sha256": "9704fd5b462b3a7e2ac6b7aca6cd5596e203aeb9fa7afb90dfa8f110cfc914e0"
+        }
+      ],
+      "models_fitted": false,
+      "shap_recomputed": false
+    },
+    "Figure_S1": {
+      "detail": {
+        "inputs": [
+          {
+            "path": "results/nifc_annual_record_counts_2015_2026.csv",
+            "sha256": "3003ce239f1d5abb70497e623aabc3520b9726d058fc3dced4233548ecfd6662"
+          },
+          {
+            "path": "results/nifc_created_by_system_2015_2026.csv",
+            "sha256": "1150a8e2cdfa7399e026aa44dff8ce2e521ea6274ec84792ce6046a79e5b4e58"
+          },
+          {
+            "path": "results/monthly_wildfire_distribution_2021_2025.csv",
+            "sha256": "e83c73145bee0d9ad5ac43b9ee3ef903195d81023aa4c4842c833388b7ac92b2"
+          }
+        ],
+        "method": "Plot saved reporting counts/proportions; check their arithmetic. Raw incident queries are not executed.",
+        "raw_incident_queries_executed": false
+      },
+      "png_pixels": [
+        4320,
+        4320
+      ],
+      "dpi": 600,
+      "outputs": [
+        {
+          "path": "figures/generated/Figure_S1.png",
+          "sha256": "e3997f13cf44381dba33fa8d41b53a8f9908634e9c4332c11bf44456f2a37fc3"
+        },
+        {
+          "path": "figures/generated/Figure_S1.pdf",
+          "sha256": "e157d2f8cb8ca91641b2c9f37bf5385766661e55b169aad3086d5ecaaa79b6d2"
+        }
+      ],
+      "models_fitted": false,
+      "shap_recomputed": false
+    },
+    "Figure_S2": {
+      "detail": {
+        "inputs": [
+          {
+            "path": "results/block_size_sensitivity_fold_results.csv",
+            "sha256": "7b808977a86faae07662f82c20eca2fef624c9ebf530db85526f8d267e005855"
+          },
+          {
+            "path": "results/temporal_sensitivity_fold_results.csv",
+            "sha256": "8ffe69fe849c21e122ac6fc4072608179d52a9c63408d434adcd186c3b446958"
+          },
+          {
+            "path": "results/block_size_sensitivity_summary.csv",
+            "sha256": "9ce283390d59f8d6a01ea72581ce2b8dd29323e7cc98843703e99ea5fb522a01"
+          },
+          {
+            "path": "results/temporal_sensitivity_summary.csv",
+            "sha256": "667cd095546ce6cacd8a81772fd1ad3680c7504273f29e12d75d3577d10ac674"
+          },
+          {
+            "path": "docs/methods.md",
+            "sha256": "db9c2435bae729224729f5dcba3556cd01cf2708fd22dcc21372833c1ddaadf6"
+          }
+        ],
+        "caption": "Figure S1. Sensitivity of saved fixed-configuration Random Forest spatial validation. (a) ROC-AUC for 25-, 50-, and 75-km grouping blocks; points are individual saved fold values. Fold numbers at different block sizes do not identify equivalent test partitions and are not joined. (b) Change in ROC-AUC after omitting NDVI, FBFM40 indicators, or both, relative to the full model, matched by the fold labels in the saved tables. The full-model mean is 0.663021. Diamonds and whiskers show mean and sample SD (ddof=1) across five folds or five within-label differences; these are not confidence intervals. These historical fixed-configuration results are separate from nested model-family evaluation. Original generation code and fitted fold models for these historical summaries are absent from the project. Arithmetic checks verify the saved tables' internal consistency; they do not independently verify upstream modeling or SHAP generation.",
+        "method": "Full-precision fold CSV summaries; no model execution. Sample SD uses ddof=1. Omission differences subtract the same saved Fold label.",
+        "provenance_limits": [
+          "Original generation code and fitted fold models for these historical summaries are absent from the project. Arithmetic checks verify the saved tables' internal consistency; they do not independently verify upstream modeling or SHAP generation.",
+          "Omission partition identity is reported in the manuscript but is not independently established by these metric-only files."
+        ],
+        "checks": {
+          "five_rows_each_configuration": true,
+          "rounded_historical_summaries_match": true,
+          "full_model_equals_50km_all_saved_metrics": true
+        }
+      },
+      "png_pixels": [
+        4320,
+        2250
+      ],
+      "dpi": 600,
+      "outputs": [
+        {
+          "path": "figures/generated/Figure_S2.png",
+          "sha256": "9834e88f2cf6b6cea239ec01430f6eb3565cd81981bf87c644e67b316464b428"
+        },
+        {
+          "path": "figures/generated/Figure_S2.pdf",
+          "sha256": "332c82a6c6d92e27d34893eae163e23d50a0310cea210cc8002deba723f3d89b"
+        }
+      ],
+      "models_fitted": false,
+      "shap_recomputed": false
+    },
+    "Figure_S3": {
+      "detail": {
+        "inputs": [
+          {
+            "path": "data/missouri_wildfire_model_encoded.csv",
+            "sha256": "d4453cb28cdab1bfef2818d1adee860bef594b7a49e5fece7ffa64a2d3355a56"
+          },
+          {
+            "path": "results/reproducibility/xgb_nested_oof_predictions.csv",
+            "sha256": "5f71a8a9b8011bb1bb68167e03d25fc95e11a7f7b04f77a6bba1d05dd4772eba"
+          },
+          {
+            "path": "results/reproducibility/outer_fold_assignments.csv",
+            "sha256": "93cefd866bfbd22f2e5fb9184d58e49edb12dbdfd5fbc2ba8ca96a40147b227b"
+          },
+          {
+            "path": "results/reproducibility/model_evaluation_summary.csv",
+            "sha256": "9c3b5aed449a75a3bf152f3bf6ad4396c42d2ef29aa802f702c99f49843c8908"
+          },
+          {
+            "path": "results/reproducibility/validation_report.json",
+            "sha256": "bf7b57778ce1590c18e22ad16fec6de4fdffcb91dc97333cb50b3d33d3b23508"
+          },
+          {
+            "path": "results/rf_nested_spatial_cv_results.csv",
+            "sha256": "5a69ea4bb47e419da9391c86841f84200270288b04f29a9f36fc4389ce84d1b3"
+          },
+          {
+            "path": "results/reproducibility/xgb_nested_fold_results.csv",
+            "sha256": "f15e3334fff0e1472a333ad2579a547eaa728a15c9c3ab503a7ec4c0c1f4441e"
+          }
+        ],
+        "derived_tables": [
+          {
+            "path": "figures/generated/data/diagnostics_nested_model_metrics.csv",
+            "sha256": "024de4f55db0d07950e84580716a5da4c248d2e775c8f19b4f384c488f264fce"
+          },
+          {
+            "path": "figures/generated/data/diagnostics_outer_fold_metrics.csv",
+            "sha256": "bd4e0a3a0af81cf92826ece1560c5c771e511c685363584d21fb7398989fd1c8"
+          },
+          {
+            "path": "figures/generated/data/diagnostics_roc_points.csv",
+            "sha256": "382dc38152d1627d83ea37cc7cec7fed5c6ca0d1a809faa685571864b3f517ee"
+          },
+          {
+            "path": "figures/generated/data/diagnostics_pr_points.csv",
+            "sha256": "5c14db75e62eee54fd8c4e8bc156e685114b45d28ca99844a9927996d8d18c45"
+          }
+        ],
+        "model_fitting_performed": false,
+        "threshold_optimized_here": false,
+        "score_calibration_performed": false,
+        "pooled_metrics": [
+          {
+            "model": "Random Forest",
+            "outer_fold": 0,
+            "cells": 7229,
+            "recorded_fire_cells": 2988,
+            "no_recorded_fire_cells": 4241,
+            "roc_auc": 0.6590677730966309,
+            "average_precision": 0.5315963155405554,
+            "saved_threshold": 0.5,
+            "true_negative": 2654,
+            "false_positive": 1587,
+            "false_negative": 1142,
+            "true_positive": 1846,
+            "precision_at_0_50": 0.5377221089426157,
+            "recall_at_0_50": 0.6178045515394913,
+            "false_negative_rate_at_0_50": 0.3821954484605087,
+            "false_positive_rate_at_0_50": 0.37420419712332,
+            "accuracy_at_0_50": 0.6224927375847282,
+            "f1_at_0_50": 0.57498831957639
+          },
+          {
+            "model": "XGBoost",
+            "outer_fold": 0,
+            "cells": 7229,
+            "recorded_fire_cells": 2988,
+            "no_recorded_fire_cells": 4241,
+            "roc_auc": 0.6453372240830018,
+            "average_precision": 0.5138586284746509,
+            "saved_threshold": 0.5,
+            "true_negative": 3152,
+            "false_positive": 1089,
+            "false_negative": 1691,
+            "true_positive": 1297,
+            "precision_at_0_50": 0.5435875943000839,
+            "recall_at_0_50": 0.43406961178045517,
+            "false_negative_rate_at_0_50": 0.5659303882195449,
+            "false_positive_rate_at_0_50": 0.2567790615420891,
+            "accuracy_at_0_50": 0.6154378198921012,
+            "f1_at_0_50": 0.48269445478228507
+          }
+        ],
+        "outer_fold_metrics": [
+          {
+            "model": "Random Forest",
+            "outer_fold": 1,
+            "cells": 1462,
+            "recorded_fire_cells": 605,
+            "no_recorded_fire_cells": 857,
+            "roc_auc": 0.6185289834807179,
+            "average_precision": 0.4962887066377254,
+            "saved_threshold": 0.5,
+            "true_negative": 480,
+            "false_positive": 377,
+            "false_negative": 263,
+            "true_positive": 342,
+            "precision_at_0_50": 0.4756606397774687,
+            "recall_at_0_50": 0.5652892561983471,
+            "false_negative_rate_at_0_50": 0.43471074380165287,
+            "false_positive_rate_at_0_50": 0.43990665110851807,
+            "accuracy_at_0_50": 0.5622435020519836,
+            "f1_at_0_50": 0.5166163141993958
+          },
+          {
+            "model": "Random Forest",
+            "outer_fold": 2,
+            "cells": 1423,
+            "recorded_fire_cells": 597,
+            "no_recorded_fire_cells": 826,
+            "roc_auc": 0.7047890785647365,
+            "average_precision": 0.5760858188657594,
+            "saved_threshold": 0.5,
+            "true_negative": 559,
+            "false_positive": 267,
+            "false_negative": 196,
+            "true_positive": 401,
+            "precision_at_0_50": 0.6002994011976048,
+            "recall_at_0_50": 0.6716917922948074,
+            "false_negative_rate_at_0_50": 0.32830820770519265,
+            "false_positive_rate_at_0_50": 0.32324455205811137,
+            "accuracy_at_0_50": 0.67463106113844,
+            "f1_at_0_50": 0.6339920948616601
+          },
+          {
+            "model": "Random Forest",
+            "outer_fold": 3,
+            "cells": 1474,
+            "recorded_fire_cells": 599,
+            "no_recorded_fire_cells": 875,
+            "roc_auc": 0.6565361316479847,
+            "average_precision": 0.5241654263642923,
+            "saved_threshold": 0.5,
+            "true_negative": 592,
+            "false_positive": 283,
+            "false_negative": 249,
+            "true_positive": 350,
+            "precision_at_0_50": 0.5529225908372828,
+            "recall_at_0_50": 0.5843071786310517,
+            "false_negative_rate_at_0_50": 0.41569282136894825,
+            "false_positive_rate_at_0_50": 0.32342857142857145,
+            "accuracy_at_0_50": 0.6390773405698779,
+            "f1_at_0_50": 0.5681818181818182
+          },
+          {
+            "model": "Random Forest",
+            "outer_fold": 4,
+            "cells": 1447,
+            "recorded_fire_cells": 593,
+            "no_recorded_fire_cells": 854,
+            "roc_auc": 0.6613713464264981,
+            "average_precision": 0.539755483023721,
+            "saved_threshold": 0.5,
+            "true_negative": 578,
+            "false_positive": 276,
+            "false_negative": 259,
+            "true_positive": 334,
+            "precision_at_0_50": 0.5475409836065573,
+            "recall_at_0_50": 0.5632377740303541,
+            "false_negative_rate_at_0_50": 0.43676222596964587,
+            "false_positive_rate_at_0_50": 0.3231850117096019,
+            "accuracy_at_0_50": 0.6302695231513477,
+            "f1_at_0_50": 0.5552784704904405
+          },
+          {
+            "model": "Random Forest",
+            "outer_fold": 5,
+            "cells": 1423,
+            "recorded_fire_cells": 594,
+            "no_recorded_fire_cells": 829,
+            "roc_auc": 0.669838716883349,
+            "average_precision": 0.5658558654108735,
+            "saved_threshold": 0.5,
+            "true_negative": 445,
+            "false_positive": 384,
+            "false_negative": 175,
+            "true_positive": 419,
+            "precision_at_0_50": 0.5217932752179327,
+            "recall_at_0_50": 0.7053872053872053,
+            "false_negative_rate_at_0_50": 0.2946127946127946,
+            "false_positive_rate_at_0_50": 0.4632086851628468,
+            "accuracy_at_0_50": 0.607167955024596,
+            "f1_at_0_50": 0.5998568360773086
+          },
+          {
+            "model": "XGBoost",
+            "outer_fold": 1,
+            "cells": 1462,
+            "recorded_fire_cells": 605,
+            "no_recorded_fire_cells": 857,
+            "roc_auc": 0.610814199060725,
+            "average_precision": 0.4890143688693553,
+            "saved_threshold": 0.5,
+            "true_negative": 563,
+            "false_positive": 294,
+            "false_negative": 299,
+            "true_positive": 306,
+            "precision_at_0_50": 0.51,
+            "recall_at_0_50": 0.5057851239669422,
+            "false_negative_rate_at_0_50": 0.49421487603305786,
+            "false_positive_rate_at_0_50": 0.34305717619603265,
+            "accuracy_at_0_50": 0.594391244870041,
+            "f1_at_0_50": 0.5078838174273859
+          },
+          {
+            "model": "XGBoost",
+            "outer_fold": 2,
+            "cells": 1423,
+            "recorded_fire_cells": 597,
+            "no_recorded_fire_cells": 826,
+            "roc_auc": 0.6936194288634455,
+            "average_precision": 0.5756767985844945,
+            "saved_threshold": 0.5,
+            "true_negative": 671,
+            "false_positive": 155,
+            "false_negative": 337,
+            "true_positive": 260,
+            "precision_at_0_50": 0.6265060240963856,
+            "recall_at_0_50": 0.4355108877721943,
+            "false_negative_rate_at_0_50": 0.5644891122278057,
+            "false_positive_rate_at_0_50": 0.18765133171912832,
+            "accuracy_at_0_50": 0.6542515811665496,
+            "f1_at_0_50": 0.5138339920948617
+          },
+          {
+            "model": "XGBoost",
+            "outer_fold": 3,
+            "cells": 1474,
+            "recorded_fire_cells": 599,
+            "no_recorded_fire_cells": 875,
+            "roc_auc": 0.634669210589077,
+            "average_precision": 0.4872655441858043,
+            "saved_threshold": 0.5,
+            "true_negative": 705,
+            "false_positive": 170,
+            "false_negative": 414,
+            "true_positive": 185,
+            "precision_at_0_50": 0.5211267605633803,
+            "recall_at_0_50": 0.3088480801335559,
+            "false_negative_rate_at_0_50": 0.6911519198664441,
+            "false_positive_rate_at_0_50": 0.19428571428571428,
+            "accuracy_at_0_50": 0.6037991858887382,
+            "f1_at_0_50": 0.38784067085953877
+          },
+          {
+            "model": "XGBoost",
+            "outer_fold": 4,
+            "cells": 1447,
+            "recorded_fire_cells": 593,
+            "no_recorded_fire_cells": 854,
+            "roc_auc": 0.663123837432023,
+            "average_precision": 0.5632338061226273,
+            "saved_threshold": 0.5,
+            "true_negative": 654,
+            "false_positive": 200,
+            "false_negative": 338,
+            "true_positive": 255,
+            "precision_at_0_50": 0.5604395604395604,
+            "recall_at_0_50": 0.4300168634064081,
+            "false_negative_rate_at_0_50": 0.5699831365935919,
+            "false_positive_rate_at_0_50": 0.234192037470726,
+            "accuracy_at_0_50": 0.6281962681409814,
+            "f1_at_0_50": 0.4866412213740458
+          },
+          {
+            "model": "XGBoost",
+            "outer_fold": 5,
+            "cells": 1423,
+            "recorded_fire_cells": 594,
+            "no_recorded_fire_cells": 829,
+            "roc_auc": 0.6328697103727261,
+            "average_precision": 0.49811713700410054,
+            "saved_threshold": 0.5,
+            "true_negative": 559,
+            "false_positive": 270,
+            "false_negative": 303,
+            "true_positive": 291,
+            "precision_at_0_50": 0.5187165775401069,
+            "recall_at_0_50": 0.4898989898989899,
+            "false_negative_rate_at_0_50": 0.51010101010101,
+            "false_positive_rate_at_0_50": 0.32569360675512665,
+            "accuracy_at_0_50": 0.5973295853829936,
+            "f1_at_0_50": 0.5038961038961038
+          }
+        ],
+        "precision_recall_metric": "sklearn.metrics.average_precision_score; not trapezoidal PR-AUC",
+        "operating_points": "Pooled confusion counts from saved binary predictions at the original 0.50 rule; not averages of fold precision/recall.",
+        "pooled_roc_auc_verified_against_cache": true,
+        "outer_metrics_verified_against_cache": true,
+        "reference_prevalence": 0.4133351777562595,
+        "curves": "Bold pooled OOF curves plus thin per-outer-fold curves; thin curves are not confidence bands.",
+        "threshold_csv_note": "Infinite initial ROC thresholds and undefined terminal PR thresholds are stored blank.",
+        "uncertainty": "None estimated. One nested OOF prediction per cell; overlapping training partitions do not give independent replications."
+      },
+      "png_pixels": [
+        4320,
+        2370
+      ],
+      "dpi": 600,
+      "outputs": [
+        {
+          "path": "figures/generated/Figure_S3.png",
+          "sha256": "6da5690a5fa76946a1d9d6a303db84ff771edc662a7708755a806716703deedc"
+        },
+        {
+          "path": "figures/generated/Figure_S3.pdf",
+          "sha256": "5c971329900e8f1350399e3986a59f3f7960c355b28d7db4937c3a6f18f3c0ec"
+        }
+      ],
+      "models_fitted": false,
+      "shap_recomputed": false
+    },
+    "Figure_S4": {
+      "detail": {
+        "inputs": [
+          {
+            "path": "results/reproducibility/rf_shap_values.npz",
+            "sha256": "7f576790355a2439efcec314b2619b15cc0581e8fd4c44083968cbb114ed5af7"
+          },
+          {
+            "path": "results/reproducibility/rf_shap_metadata.json",
+            "sha256": "0eca147ca263a30a26f3e27a71f4be5b146ae76bb551eb3b7175c9b4602812ae"
+          }
+        ],
+        "supporting_data": [
+          {
+            "path": "figures/generated/data/spatial_population_road_dependence.csv",
+            "sha256": "4a4a39ed23b158fb370315f4570dc24c143cb33f6d253f6c1181865d0c759530"
+          }
+        ],
+        "rows": 7229,
+        "features": [
+          "population",
+          "road_distance"
+        ],
+        "interpreted_class": 1,
+        "source_values_changed": false,
+        "models_fitted": 0,
+        "population_display_transform": "log(1 + raw x), with raw-value tick labels; all points retained",
+        "road_display_transform": "none",
+        "predictor_units": "not verified from source export",
+        "caption": "Dependence of the preserved final RF's class-1 SHAP contributions on population and road-distance predictors. Every original cell and SHAP value is shown. Population uses log(1 + value) horizontal spacing to display its skewed distribution; road distance is linear. Axes do not assert unverified physical units. These are full-data fitted-model associations."
+      },
+      "png_pixels": [
+        4440,
+        2430
+      ],
+      "dpi": 600,
+      "outputs": [
+        {
+          "path": "figures/generated/Figure_S4.png",
+          "sha256": "8f4dd675256330cc3a8ceada431a75e6b46e8352d7b1daa23e4e1ad49a204f6c"
+        },
+        {
+          "path": "figures/generated/Figure_S4.pdf",
+          "sha256": "d4c18fcd3ea051799d69ebfc67f8ab22438e412a1dbed6835350ee6b03c31161"
+        }
+      ],
+      "models_fitted": false,
+      "shap_recomputed": false
+    },
+    "Figure_S5": {
+      "detail": {
+        "inputs": [
+          {
+            "path": "results/shap_spatial_fold_stability.csv",
+            "sha256": "5f9931422ffa8ebba0386099d4031719fdd220cbe70df1592e6cb096740b0334"
+          },
+          {
+            "path": "results/shap_fold_rank_correlations.csv",
+            "sha256": "3cdabe2198bbfed70ad7cc719b6c82a81c5f0024cb5c5f45b365a5880482bea5"
+          },
+          {
+            "path": "docs/methods.md",
+            "sha256": "db9c2435bae729224729f5dcba3556cd01cf2708fd22dcc21372833c1ddaadf6"
+          }
+        ],
+        "caption": "Figure S2. Consistency of the historical fold-specific Random Forest SHAP importance summaries. (a) Ranks within each saved fold among all 33 predictors, with ties assigned average ranks; the 15 features with largest mean absolute SHAP importance across the five folds are displayed. (b) Pairwise Spearman correlations computed from all 33 feature rankings. Off-diagonal correlations range from 0.964710 to 0.988302; 9 features rank in the top ten in every fold. Mean importance, mean ranks, top-ten counts, and the correlation matrix reproduce the supplied summary arithmetic. These are historical fold summaries, not the separately cached full-data SHAP explanation. Original generation code and fitted fold models for these historical summaries are absent from the project. Arithmetic checks verify the saved tables' internal consistency; they do not independently verify upstream modeling or SHAP generation.",
+        "method": "Rank saved mean absolute SHAP values within each fold (descending, average ties); correlate ranks across all 33 features. No SHAP computation.",
+        "provenance_limits": [
+          "Original generation code and fitted fold models for these historical summaries are absent from the project. Arithmetic checks verify the saved tables' internal consistency; they do not independently verify upstream modeling or SHAP generation.",
+          "The held-out outer-fold interpretation is documented by the manuscript; original fitted fold models and explanation arrays are not available for confirmation."
+        ],
+        "checks": {
+          "shape": [
+            33,
+            5
+          ],
+          "mean_importance_matches": true,
+          "mean_rank_matches": true,
+          "top10_counts_match": true,
+          "rank_correlations_match": true,
+          "off_diagonal_min": 0.964710155021279,
+          "off_diagonal_max": 0.9883021390374334,
+          "features_top10_all_folds": 9
+        }
+      },
+      "png_pixels": [
+        4320,
+        3390
+      ],
+      "dpi": 600,
+      "outputs": [
+        {
+          "path": "figures/generated/Figure_S5.png",
+          "sha256": "bebc54024adab7674b9ff06f067368c3ad58c28dbd6b72562c9d19e81cf4699f"
+        },
+        {
+          "path": "figures/generated/Figure_S5.pdf",
+          "sha256": "4dbf6b4cd6375d1967429d02550596765bc59871096c6f6bfb5980f16b1fed98"
+        }
+      ],
+      "models_fitted": false,
+      "shap_recomputed": false
+    }
+  },
+  "processed_inputs_only": true,
+  "models_fitted": false
+}

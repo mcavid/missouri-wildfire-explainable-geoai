@@ -1,0 +1,18 @@
+* text=auto
+*.py text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.cff text eol=lf
+*.csv -text
+*.ipynb text eol=lf
+*.joblib binary
+*.gpkg binary
+*.npz binary
+*.png binary
+*.pdf binary
+
+# Frozen artifact hashes refer to exact bytes, including source line endings.
+data/** -text
+models/** -text
+results/** -text
+figures/paper/** -text

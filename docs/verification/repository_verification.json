@@ -1,0 +1,244 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "name": "frozen_artifact_integrity",
+      "files": 94,
+      "status": "passed"
+    },
+    {
+      "name": "notebook_and_code",
+      "status": "passed",
+      "details": {
+        "nbformat_valid": true,
+        "cells": 143,
+        "code_cells_parsed": 116,
+        "scripts_parsed": 12,
+        "notebook_executed": false,
+        "sha256": "7d2fe5602d3bef96b1d9daa90166e66f86d9b095379b7654a9c178c80618d75e"
+      }
+    },
+    {
+      "name": "model_matrix_and_folds",
+      "status": "passed",
+      "details": {
+        "rows": 7229,
+        "predictors": [
+          "elevation",
+          "slope",
+          "northness",
+          "eastness",
+          "canopy",
+          "ndvi",
+          "temperature",
+          "precipitation",
+          "pdsi",
+          "wind",
+          "road_distance",
+          "population",
+          "lc_11",
+          "lc_22",
+          "lc_23",
+          "lc_24",
+          "lc_41",
+          "lc_42",
+          "lc_43",
+          "lc_81",
+          "lc_82",
+          "lc_90",
+          "lc_95",
+          "fuel_102",
+          "fuel_103",
+          "fuel_182",
+          "fuel_185",
+          "fuel_186",
+          "fuel_188",
+          "fuel_189",
+          "fuel_91",
+          "fuel_93",
+          "fuel_98"
+        ],
+        "classes": [
+          0,
+          1
+        ],
+        "positive_rows": 2988,
+        "spatial_blocks": 94,
+        "outer_test_sizes": [
+          1462,
+          1423,
+          1474,
+          1447,
+          1423
+        ],
+        "inner_validation_sizes": {
+          "1": [
+            1409,
+            1502,
+            1444,
+            1412
+          ],
+          "2": [
+            1459,
+            1481,
+            1411,
+            1455
+          ],
+          "3": [
+            1436,
+            1429,
+            1441,
+            1449
+          ],
+          "4": [
+            1403,
+            1472,
+            1510,
+            1397
+          ],
+          "5": [
+            1463,
+            1483,
+            1413,
+            1447
+          ]
+        },
+        "outer_and_inner_block_separation": true
+      }
+    },
+    {
+      "name": "saved_validation_metrics",
+      "status": "passed",
+      "details": {
+        "analyses_verified": 6,
+        "mean_and_sample_sd_match_fold_results": true,
+        "pooled_auc_matches_per_cell_predictions": true,
+        "completed_output_hashes_verified": 17,
+        "nested_xgb_candidates_per_outer_fold": 64,
+        "inner_folds": 4,
+        "nested_xgb_historical_source_absent_reconstruction_explicit": true
+      }
+    },
+    {
+      "name": "full_data_shap",
+      "status": "passed",
+      "details": {
+        "cache_sha256_verified": true,
+        "input_hashes_verified": 3,
+        "maximum_additivity_error": 3.9565573040079016e-14,
+        "maximum_importance_difference": 9.389190813724468e-17,
+        "class": 1,
+        "model_fitted_here": false
+      }
+    },
+    {
+      "name": "fold_summary_rank_arithmetic",
+      "status": "passed",
+      "features": 33,
+      "folds": 5
+    },
+    {
+      "name": "13_paper_figure_pairs",
+      "status": "passed",
+      "figures": [
+        {
+          "figure": "Figure_01",
+          "pixels": [
+            4440,
+            2820
+          ]
+        },
+        {
+          "figure": "Figure_02",
+          "pixels": [
+            4320,
+            4020
+          ]
+        },
+        {
+          "figure": "Figure_03",
+          "pixels": [
+            4320,
+            2340
+          ]
+        },
+        {
+          "figure": "Figure_04",
+          "pixels": [
+            4440,
+            3960
+          ]
+        },
+        {
+          "figure": "Figure_05",
+          "pixels": [
+            4440,
+            3900
+          ]
+        },
+        {
+          "figure": "Figure_06",
+          "pixels": [
+            4200,
+            2400
+          ]
+        },
+        {
+          "figure": "Figure_07",
+          "pixels": [
+            4320,
+            2850
+          ]
+        },
+        {
+          "figure": "Figure_08",
+          "pixels": [
+            4440,
+            4500
+          ]
+        },
+        {
+          "figure": "Figure_S1",
+          "pixels": [
+            4320,
+            4320
+          ]
+        },
+        {
+          "figure": "Figure_S2",
+          "pixels": [
+            4320,
+            2250
+          ]
+        },
+        {
+          "figure": "Figure_S3",
+          "pixels": [
+            4320,
+            2370
+          ]
+        },
+        {
+          "figure": "Figure_S4",
+          "pixels": [
+            4440,
+            2430
+          ]
+        },
+        {
+          "figure": "Figure_S5",
+          "pixels": [
+            4320,
+            3390
+          ]
+        }
+      ]
+    },
+    {
+      "name": "citation_license_and_read_only_ci",
+      "status": "passed"
+    }
+  ],
+  "models_fitted": false,
+  "raw_inputs_read": false
+}

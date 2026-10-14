@@ -1,0 +1,24 @@
+{
+  "fingerprint": "6d1edd0b3b2a7f773582848d5ed282c5de99a45758b17a713677f919556b5018",
+  "historical_comparison": "Rounded notebook fold AUCs and mean and SD",
+  "historical_rounding_expected": {
+    "fold_auc": [
+      0.688,
+      0.639,
+      0.694,
+      0.663,
+      0.68
+    ],
+    "mean_auc": 0.673,
+    "sd_auc": 0.022
+  },
+  "mean_auc": 0.6728386879176435,
+  "output_sha256": {
+    "rf_grouped_baseline_fold_results.csv": "7926006fd8edafa23fdee6a60bbf3f47fb378d9cac2fd51763460aee52d5b436",
+    "rf_grouped_baseline_oof_predictions.csv": "2c5dd9550fd47f117456eae22e879341ffdcffd0ae6a9026fca6e70804acf83c"
+  },
+  "pooled_oof_auc": 0.6697757389693965,
+  "provenance": "Reproduced original baseline from preserved 33-feature checkpoint; exact values belong to this reproduction.",
+  "sd_auc": 0.022359869362341724,
+  "verified": true
+}

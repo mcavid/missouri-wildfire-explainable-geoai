@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: "Please cite this research software when reusing the analysis. The associated paper is an unpublished manuscript; add its DOI after publication."
+type: software
+title: "Missouri wildfire susceptibility: explainable GeoAI research materials"
+version: "0.1.0-prepublication"
+authors:
+  - family-names: Javid
+    given-names: Mehdi
+    affiliation: "University of Missouri–St. Louis"
+  - family-names: Amer
+    given-names: Reda
+    affiliation: "University of Missouri–St. Louis"
+repository-code: "https://github.com/mcavid/missouri-wildfire-explainable-geoai"
+url: "https://github.com/mcavid/missouri-wildfire-explainable-geoai"
+license: MIT
+keywords:
+  - wildfire susceptibility
+  - spatial cross-validation
+  - remote sensing
+  - SHAP
+preferred-citation:
+  type: unpublished
+  title: "From Random to Spatial Validation: An Explainable GeoAI Framework for Wildfire Susceptibility Mapping"
+  authors:
+    - family-names: Javid
+      given-names: Mehdi
+    - family-names: Amer
+      given-names: Reda
+  year: 2026
+  notes: "Manuscript prepared for MDPI Remote Sensing; no journal publication or DOI is asserted."

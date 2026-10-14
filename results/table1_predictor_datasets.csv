@@ -1,0 +1,15 @@
+Predictor,Source,Temporal_Coverage,Native_Resolution,Processing_Resolution,Aggregation_to_5km
+Elevation,USGS 3DEP,Static,10 m,250 m,Mean
+Slope,Derived from USGS 3DEP,Static,10 m,250 m,Mean
+Northness,Derived from aspect,Static,10 m,250 m,Mean
+Eastness,Derived from aspect,Static,10 m,250 m,Mean
+Tree canopy cover,GTAC Tree Canopy Cover,2021,Fine resolution,250 m,Mean
+NDVI,MODIS MOD13Q1,2021-2025 (Apr-Oct),250 m,250 m,Seasonal/multi-year mean
+Land cover,NLCD,2021,30 m,250 m,Dominant class
+Temperature,PRISM,2021-2025,~4 km,250 m export,Multi-year mean
+Precipitation,PRISM,2021-2025,~4 km,250 m export,Mean annual precipitation
+PDSI,GRIDMET Drought,2021-2025,~4 km,250 m export,Multi-year mean
+Wind speed,GRIDMET,2021-2025,~4 km,250 m export,Multi-year mean
+Population,WorldPop,2020,100 m,100 m,Sum
+Distance to roads,TIGER/Line Roads,2016,Vector,250 m raster,Mean distance
+Fuel model,LANDFIRE FBFM40,2024,30 m,30 m,Dominant class

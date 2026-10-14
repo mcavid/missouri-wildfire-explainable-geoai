@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-13",
+  "preparation": "local only; no GitHub connection or upload performed",
+  "title": "From Random to Spatial Validation: An Explainable GeoAI Framework for Wildfire Susceptibility Mapping",
+  "checks": {
+    "frozen_research_artifacts": "94 files: sizes and SHA-256 hashes passed",
+    "processed_matrix": "7,229 cells, 33 features, 94 blocks",
+    "validation": "outer/inner memberships and saved metrics passed; artifact-mode command completed",
+    "shap": "saved full-data SHAP shape, additivity, model/input hashes and importance agreement passed",
+    "figures": "all 13 PNG/PDF pairs regenerated successfully without fitting models",
+    "citation": "CFF 1.2.0 schema passed",
+    "credential_scan": "no credential patterns or personal absolute-path references found in included text files"
+  },
+  "limits": [
+    "No expensive new RF/XGBoost model searches were executed for this final packaging check.",
+    "No upstream raw-data extraction was performed; the package starts from supplied processed inputs.",
+    "The GitHub Actions workflow is supplied but has not run remotely."
+  ],
+  "excluded": [
+    "Raw acquisition rasters and full incident database",
+    "Manuscript drafts, code/data archives and submission files",
+    "Authentication files, local caches, generated test figures and new-run working copies"
+  ],
+  "reports": [
+    "docs/verification/repository_verification.json",
+    "docs/verification/validation_report.json",
+    "docs/verification/figure_regeneration.json"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "fingerprint": "6d1edd0b3b2a7f773582848d5ed282c5de99a45758b17a713677f919556b5018",
+  "historical_comparison": "Rounded notebook fold AUCs and mean; original full-precision random SD was not saved",
+  "historical_rounding_expected": {
+    "fold_auc": [
+      0.755,
+      0.794,
+      0.753,
+      0.758,
+      0.777
+    ],
+    "mean_auc": 0.768,
+    "sd_auc": null
+  },
+  "mean_auc": 0.7675131561751218,
+  "output_sha256": {
+    "rf_random_fold_results.csv": "e23b8c1c1f8b4f18968fca75c76a0a9d9953464ddbfc394da8be679d16938982",
+    "rf_random_oof_predictions.csv": "3a0d834f78e3258ef389d53bf0ba48d14d3642b38bd9419329b9b9f8be6f8027"
+  },
+  "pooled_oof_auc": 0.7668867721140004,
+  "provenance": "Reproduced original baseline from preserved 33-feature checkpoint; exact values belong to this reproduction.",
+  "sd_auc": 0.01765877279186227,
+  "verified": true
+}

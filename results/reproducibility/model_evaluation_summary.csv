@@ -1,0 +1,7 @@
+model,validation,mean_auc,sd_auc,pooled_oof_auc,provenance,verified
+Random Forest,Random 5-fold CV,0.7675131561751218,0.01765877279186227,0.7668867721140004,Reproduced original baseline from preserved 33-feature checkpoint; exact values belong to this reproduction.,True
+Random Forest,Grouped spatial 5-fold CV,0.6728386879176435,0.022359869362341724,0.6697757389693965,Reproduced original baseline from preserved 33-feature checkpoint; exact values belong to this reproduction.,True
+Random Forest,Tuned spatial 5-fold CV,0.6630206939775217,0.030008235415890195,0.6605096799995707,Historical full-precision fold metrics and saved per-cell OOF probabilities; original notebook implementation preserved.,True
+XGBoost,Tuned spatial 5-fold CV,0.6492433329652872,0.025379596461150074,0.647090878644658,Historical full-precision fold metrics and saved per-cell OOF probabilities; original notebook implementation preserved.,True
+Random Forest,Nested spatial 5-fold CV,0.6622128514006573,0.030871113269956785,0.6590677730966309,Historical full-precision fold metrics and saved per-cell OOF probabilities; original notebook implementation preserved.,True
+XGBoost,Nested spatial 5-fold CV,0.6470192772635993,0.03199403485451513,0.6453372240830018,"Full nested reconstruction on explicitly shared outer/inner folds; matches historical fold metrics, inner scores, and winners. Historical generating code was absent.",True

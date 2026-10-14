@@ -1,0 +1,27 @@
+{
+  "best_index": 5,
+  "best_params": {
+    "colsample_bytree": 0.8,
+    "learning_rate": 0.03,
+    "max_depth": 3,
+    "min_child_weight": 5,
+    "n_estimators": 300,
+    "subsample": 1.0
+  },
+  "elapsed_seconds": 8.904287332989043,
+  "fingerprint": "6d1edd0b3b2a7f773582848d5ed282c5de99a45758b17a713677f919556b5018",
+  "fold": 4,
+  "inner_best_auc": 0.6352320585411588,
+  "metrics": {
+    "accuracy": 0.6281962681409814,
+    "f1": 0.4866412213740458,
+    "precision": 0.5604395604395604,
+    "recall": 0.4300168634064081,
+    "roc_auc": 0.663123837432023
+  },
+  "output_sha256": {
+    "xgb_nested_fold_4_cv_results.csv": "3680f1b56f3675265f715e2c29b33af426d485316c471809e34592d2fb90207a",
+    "xgb_nested_fold_4_predictions.csv": "aa56d879f24765454396947937b1e1357e6dfd1f45d4dafd852159101a3ac77d"
+  },
+  "provenance": "New full nested reconstruction; historical generating code was not preserved."
+}

@@ -1,0 +1,5 @@
+Analysis,Model,Validation,ROC_AUC,Accuracy,Precision,Recall,F1
+Random vs spatial validation,Random Forest,Random 5-fold CV,0.768,0.707,0.679,0.559,0.612
+Random vs spatial validation,Random Forest,Spatial 5-fold CV,0.673,0.641,0.584,0.488,0.525
+Tuned model comparison,Random Forest,Spatial 5-fold CV,0.663,0.625,0.544,0.607,0.573
+Tuned model comparison,XGBoost,Spatial 5-fold CV,0.649,0.614,0.546,0.427,0.474

@@ -1,0 +1,106 @@
+{
+  "generated_utc": "2026-10-04T03:57:26.642017+00:00",
+  "source_notebook": "archive/pre_publication_cleanup_2026-10-03/etl.original.ipynb",
+  "source_cells_1_based": [
+    114,
+    115
+  ],
+  "method": "shap.TreeExplainer(model).shap_values(X)[:, :, 1]",
+  "model_fitted_here": false,
+  "rows": 7229,
+  "features": [
+    "elevation",
+    "slope",
+    "northness",
+    "eastness",
+    "canopy",
+    "ndvi",
+    "temperature",
+    "precipitation",
+    "pdsi",
+    "wind",
+    "road_distance",
+    "population",
+    "lc_11",
+    "lc_22",
+    "lc_23",
+    "lc_24",
+    "lc_41",
+    "lc_42",
+    "lc_43",
+    "lc_81",
+    "lc_82",
+    "lc_90",
+    "lc_95",
+    "fuel_102",
+    "fuel_103",
+    "fuel_182",
+    "fuel_185",
+    "fuel_186",
+    "fuel_188",
+    "fuel_189",
+    "fuel_91",
+    "fuel_93",
+    "fuel_98"
+  ],
+  "classes": [
+    0,
+    1
+  ],
+  "interpreted_class": 1,
+  "class_definition": "At least one recorded wildfire in the grid cell",
+  "constructor_arguments": {
+    "model": "preserved final fitted RF",
+    "feature_perturbation": "not explicitly specified",
+    "data_background": "not explicitly specified",
+    "model_output": "not explicitly specified"
+  },
+  "resolved_explainer": {
+    "class": "TreeExplainer",
+    "feature_perturbation": "tree_path_dependent",
+    "model_output": "raw",
+    "background_present": false,
+    "expected_value": [
+      0.5000647599264233,
+      0.49993524007357676
+    ]
+  },
+  "output_scale_verification": "Base value plus class-1 SHAP sum matches saved RF class-1 predict_proba output; score is not asserted calibrated.",
+  "maximum_additivity_error": 3.9565573040079016e-14,
+  "maximum_importance_difference": 9.389190813724468e-17,
+  "model_parameters": {
+    "bootstrap": true,
+    "ccp_alpha": 0.0,
+    "class_weight": "balanced",
+    "criterion": "gini",
+    "max_depth": 10,
+    "max_features": "sqrt",
+    "max_leaf_nodes": null,
+    "max_samples": null,
+    "min_impurity_decrease": 0.0,
+    "min_samples_leaf": 1,
+    "min_samples_split": 2,
+    "min_weight_fraction_leaf": 0.0,
+    "monotonic_cst": null,
+    "n_estimators": 500,
+    "n_jobs": -1,
+    "oob_score": false,
+    "random_state": 42,
+    "verbose": 0,
+    "warm_start": false
+  },
+  "input_sha256": {
+    "models/random_forest_wildfire_5km.joblib": "f71818fb4da534492e793c775bc37de1c4da5c996fd250f5caa71d1dfd08ddd9",
+    "data/missouri_wildfire_model_encoded.csv": "d4453cb28cdab1bfef2818d1adee860bef594b7a49e5fece7ffa64a2d3355a56",
+    "results/rf_shap_importance.csv": "3a101fedeb12fcdc06073971f0e963cf37ac3b51f74df5c5ff50f26bdc902393"
+  },
+  "output_sha256": "7f576790355a2439efcec314b2619b15cc0581e8fd4c44083968cbb114ed5af7",
+  "environment": {
+    "python": "3.11.15",
+    "shap": "0.51.0",
+    "scikit-learn": "1.8.0",
+    "numpy": "2.4.4",
+    "pandas": "3.0.2",
+    "joblib": "1.5.3"
+  }
+}

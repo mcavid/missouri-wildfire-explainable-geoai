@@ -1,0 +1,6 @@
+fold,inner_best_auc,class_weight,max_depth,max_features,min_samples_leaf,n_estimators
+1,0.6733130261674356,balanced,10,sqrt,1,300
+2,0.6490201384938723,balanced,8,sqrt,3,500
+3,0.6675084589282608,balanced,10,sqrt,1,500
+4,0.6546520867175409,balanced,8,sqrt,1,500
+5,0.6505005626711796,balanced,8,sqrt,1,500

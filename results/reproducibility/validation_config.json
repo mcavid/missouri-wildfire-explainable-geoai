@@ -1,0 +1,127 @@
+{
+  "baseline_rf_explicit_parameters": {
+    "n_estimators": 500,
+    "n_jobs": -1,
+    "random_state": 42
+  },
+  "execution": {
+    "grid_jobs": 4,
+    "parallelism_note": "The original used n_jobs=-1 at both levels. Only execution parallelism is bounded here; statistical settings are unchanged.",
+    "workers": 4,
+    "xgb_threads_per_fit": 1
+  },
+  "feature_order": [
+    "elevation",
+    "slope",
+    "northness",
+    "eastness",
+    "canopy",
+    "ndvi",
+    "temperature",
+    "precipitation",
+    "pdsi",
+    "wind",
+    "road_distance",
+    "population",
+    "lc_11",
+    "lc_22",
+    "lc_23",
+    "lc_24",
+    "lc_41",
+    "lc_42",
+    "lc_43",
+    "lc_81",
+    "lc_82",
+    "lc_90",
+    "lc_95",
+    "fuel_102",
+    "fuel_103",
+    "fuel_182",
+    "fuel_185",
+    "fuel_186",
+    "fuel_188",
+    "fuel_189",
+    "fuel_91",
+    "fuel_93",
+    "fuel_98"
+  ],
+  "fingerprint": "6d1edd0b3b2a7f773582848d5ed282c5de99a45758b17a713677f919556b5018",
+  "grouped_baseline_cv": {
+    "class": "GroupKFold",
+    "n_splits": 5
+  },
+  "inner_cv": {
+    "class": "StratifiedGroupKFold",
+    "n_splits": 4,
+    "seeds": [
+      43,
+      44,
+      45,
+      46,
+      47
+    ],
+    "shuffle": true
+  },
+  "outer_cv": {
+    "class": "StratifiedGroupKFold",
+    "n_splits": 5,
+    "random_state": 42,
+    "shuffle": true
+  },
+  "random_baseline_cv": {
+    "class": "StratifiedKFold",
+    "n_splits": 5,
+    "random_state": 42,
+    "shuffle": true
+  },
+  "scoring": "roc_auc",
+  "script_version": 1,
+  "sd_ddof": 1,
+  "source_sha256": {
+    "data/missouri_wildfire_model_encoded.csv": "d4453cb28cdab1bfef2818d1adee860bef594b7a49e5fece7ffa64a2d3355a56",
+    "results/nested_rf_xgb_fold_results.csv": "301955ddfe01a8fecc7b9579766c7769ab69ae9b7dea3dca2e6f866d3abc184a",
+    "results/rf_nested_best_params.csv": "cf357841b5383a21fe9e35f76b1d7fd28da386f8523952a50bee28d8c575ba81",
+    "results/rf_nested_spatial_cv_results.csv": "5a69ea4bb47e419da9391c86841f84200270288b04f29a9f36fc4389ce84d1b3",
+    "results/rf_spatial_cv_results.csv": "1b56cdf483f2fa42ea05341f72f37f181d06bd415c5ab0910a56d0f459066f16",
+    "results/xgb_spatial_cv_results.csv": "f202fc91b015fb824666665920238d7521e1b9b87888a24c090b779bf47822fe"
+  },
+  "threshold": 0.5,
+  "versions": {
+    "numpy": "2.4.4",
+    "pandas": "3.0.2",
+    "python": "3.11.15",
+    "sklearn": "1.8.0",
+    "xgboost": "3.2.0"
+  },
+  "xgb_explicit_parameters": {
+    "eval_metric": "logloss",
+    "objective": "binary:logistic",
+    "random_state": 42
+  },
+  "xgb_parameter_grid": {
+    "colsample_bytree": [
+      0.8,
+      1.0
+    ],
+    "learning_rate": [
+      0.03,
+      0.05
+    ],
+    "max_depth": [
+      3,
+      5
+    ],
+    "min_child_weight": [
+      1,
+      5
+    ],
+    "n_estimators": [
+      300,
+      500
+    ],
+    "subsample": [
+      0.8,
+      1.0
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "created_utc": "2026-10-04T16:26:38.067099+00:00",
+  "source_notebook": "archive/pre_publication_cleanup_2026-10-03/etl.original.ipynb",
+  "source_cells_1_based": [
+    68,
+    69,
+    150
+  ],
+  "source_inputs": [
+    {
+      "path": "data/InFORM_FireOccurrence_MO.gpkg",
+      "sha256": "ec9b5277a1b9fe7437b96ebc6ef9165c0361f7fb56d5d087d7f0e92947478f67"
+    },
+    {
+      "path": "data/MO_State_Boundary/MO_State_Boundary.shp",
+      "sha256": "dcb5fc1101ead5ba493218714d9cddc6720edb4e73c38714863a6cfeec5c5e84"
+    }
+  ],
+  "filter": "CalendarYear.between(2021, 2025)",
+  "location_columns": [
+    "CalendarYear",
+    "x",
+    "y"
+  ],
+  "incident_names_identifiers_and_other_attributes_exported": false,
+  "location_crs": "EPSG:5070",
+  "location_count": 11434,
+  "boundary_crs": "EPSG:4326",
+  "boundary_feature_count": 1,
+  "outputs": [
+    {
+      "path": "data/derived/recorded_wildfire_locations_2021_2025.csv",
+      "sha256": "98c19d54a2a56486d66afb78d77d094cb1c2d54d82b1f492eefd8fef3f449ed9"
+    },
+    {
+      "path": "data/derived/missouri_boundary.geojson",
+      "sha256": "1b318f28002838c5ee88f91285283766f4dfa776ee7f2b6ee576c4b7da5da8df"
+    }
+  ]
+}
